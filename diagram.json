@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "author": "GoodWe Smart Charging Station",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -140,
+      "left": 300,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 180,
+      "left": 300,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 240,
+      "left": 300,
+      "attrs": {
+        "color": "yellow"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 300,
+      "left": 300,
+      "attrs": {
+        "color": "red"
+      }
+    },
+
+    {"type": "wokwi-led", "id": "ev1g", "top": 100, "left": 500, "attrs": {"color": "green"}},
+    {"type": "wokwi-led", "id": "ev1y", "top": 100, "left": 550, "attrs": {"color": "yellow"}},
+    {"type": "wokwi-led", "id": "ev1r", "top": 100, "left": 600, "attrs": {"color": "red"}},
+
+    {"type": "wokwi-led", "id": "ev2g", "top": 180, "left": 500, "attrs": {"color": "green"}},
+    {"type": "wokwi-led", "id": "ev2y", "top": 180, "left": 550, "attrs": {"color": "yellow"}},
+    {"type": "wokwi-led", "id": "ev2r", "top": 180, "left": 600, "attrs": {"color": "red"}},
+
+    {"type": "wokwi-led", "id": "ev3g", "top": 260, "left": 500, "attrs": {"color": "green"}},
+    {"type": "wokwi-led", "id": "ev3y", "top": 260, "left": 550, "attrs": {"color": "yellow"}},
+    {"type": "wokwi-led", "id": "ev3r", "top": 260, "left": 600, "attrs": {"color": "red"}},
+
+    {"type": "wokwi-resistor", "id": "r1", "top": 130, "left": 650, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r2", "top": 130, "left": 700, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r3", "top": 130, "left": 750, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r4", "top": 210, "left": 650, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r5", "top": 210, "left": 700, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r6", "top": 210, "left": 750, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r7", "top": 290, "left": 650, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r8", "top": 290, "left": 700, "attrs": {"value": "220"}},
+    {"type": "wokwi-resistor", "id": "r9", "top": 290, "left": 750, "attrs": {"value": "220"}}
+  ],
+  "connections": [
+    ["pico:GP4", "lcd:SDA", "green", []],
+    ["pico:GP5", "lcd:SCL", "blue", []],
+    ["pico:3V3", "lcd:VCC", "red", []],
+    ["pico:GND.1", "lcd:GND", "black", []],
+
+    ["pico:GP14", "btn1:1.l", "green", []],
+    ["btn1:2.l", "pico:GND.2", "black", []],
+
+    ["pico:GP15", "btn2:1.l", "green", []],
+    ["btn2:2.l", "pico:GND.2", "black", []],
+
+    ["pico:GP16", "btn3:1.l", "green", []],
+    ["btn3:2.l", "pico:GND.2", "black", []],
+
+    ["pico:GP6", "r1:1", "green", []],
+    ["r1:2", "ev1g:A", "green", []],
+    ["ev1g:C", "pico:GND.3", "black", []],
+
+    ["pico:GP7", "r2:1", "green", []],
+    ["r2:2", "ev1y:A", "green", []],
+    ["ev1y:C", "pico:GND.3", "black", []],
+
+    ["pico:GP8", "r3:1", "green", []],
+    ["r3:2", "ev1r:A", "green", []],
+    ["ev1r:C", "pico:GND.3", "black", []],
+
+    ["pico:GP9", "r4:1", "green", []],
+    ["r4:2", "ev2g:A", "green", []],
+    ["ev2g:C", "pico:GND.3", "black", []],
+
+    ["pico:GP10", "r5:1", "green", []],
+    ["r5:2", "ev2y:A", "green", []],
+    ["ev2y:C", "pico:GND.3", "black", []],
+
+    ["pico:GP11", "r6:1", "green", []],
+    ["r6:2", "ev2r:A", "green", []],
+    ["ev2r:C", "pico:GND.3", "black", []],
+
+    ["pico:GP12", "r7:1", "green", []],
+    ["r7:2", "ev3g:A", "green", []],
+    ["ev3g:C", "pico:GND.3", "black", []],
+
+    ["pico:GP13", "r8:1", "green", []],
+    ["r8:2", "ev3y:A", "green", []],
+    ["ev3y:C", "pico:GND.3", "black", []],
+
+    ["pico:GP18", "r9:1", "green", []],
+    ["r9:2", "ev3r:A", "green", []],
+    ["ev3r:C", "pico:GND.3", "black", []]
+  ]
+}
